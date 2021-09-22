@@ -47,19 +47,19 @@ class lcd:
         bits_low = mode | ((bits<<4) & 0xF0) | LCD_BACKLIGHT
 
         # High bits
-        self.led_bus.write_byte(I2C_ADDR, bits_high)
+        self.lcd_bus.write_byte(I2C_ADDR, bits_high)
         self.lcd_toggle_enable(bits_high)
 
         # Low bits
-        self.led_bus.write_byte(I2C_ADDR, bits_low)
+        self.lcd_bus.write_byte(I2C_ADDR, bits_low)
         self.lcd_toggle_enable(bits_low)
 
     def lcd_toggle_enable(self, bits):
         # Toggle enable
         time.sleep(E_DELAY)
-        self.led_bus.write_byte(I2C_ADDR, (bits | ENABLE))
+        self.lcd_bus.write_byte(I2C_ADDR, (bits | ENABLE))
         time.sleep(E_PULSE)
-        self.led_bus.write_byte(I2C_ADDR,(bits & ~ENABLE))
+        self.lcd_bus.write_byte(I2C_ADDR,(bits & ~ENABLE))
         time.sleep(E_DELAY)
 
     def lcd_string(self, message,line):
