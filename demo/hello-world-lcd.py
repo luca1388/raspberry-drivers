@@ -1,4 +1,4 @@
-import lcd
+from .. import lcd
 import time
 
 display = lcd.lcd(0x27, 1)
