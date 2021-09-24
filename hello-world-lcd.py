@@ -1,4 +1,4 @@
-from .. import lcd
+from i2c import lcd
 import time
 
 display = lcd.lcd(0x27, 1)

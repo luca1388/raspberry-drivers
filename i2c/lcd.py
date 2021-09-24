@@ -1,4 +1,4 @@
-import i2c
+import smbus
 import time
 
 LCD_WIDTH = 16   # Maximum characters per line
@@ -25,7 +25,11 @@ class lcd:
     LCD_LINE_4 = 0xD4 # LCD RAM address for the 4th line
 
     def __init__(self, address = I2C_ADDR, port = I2C_BUS):
-        self.lcd_bus = i2c.i2c(address, port)
+        if not address or not port:
+            raise Exception('Arguments not provided')
+
+        self.address = address
+        self.lcd_bus = smbus.SMBus(port)
 
     def lcd_init(self):
         # Initialise display
@@ -47,19 +51,19 @@ class lcd:
         bits_low = mode | ((bits<<4) & 0xF0) | LCD_BACKLIGHT
 
         # High bits
-        self.lcd_bus.write_byte(I2C_ADDR, bits_high)
+        self.lcd_bus.write_byte(self.address, bits_high)
         self.lcd_toggle_enable(bits_high)
 
         # Low bits
-        self.lcd_bus.write_byte(I2C_ADDR, bits_low)
+        self.lcd_bus.write_byte(self.address, bits_low)
         self.lcd_toggle_enable(bits_low)
 
     def lcd_toggle_enable(self, bits):
         # Toggle enable
         time.sleep(E_DELAY)
-        self.lcd_bus.write_byte(I2C_ADDR, (bits | ENABLE))
+        self.lcd_bus.write_byte(self.address, (bits | ENABLE))
         time.sleep(E_PULSE)
-        self.lcd_bus.write_byte(I2C_ADDR,(bits & ~ENABLE))
+        self.lcd_bus.write_byte(self.address,(bits & ~ENABLE))
         time.sleep(E_DELAY)
 
     def lcd_string(self, message,line):
