@@ -3,16 +3,16 @@
 
 import requests
 import json
+from decouple import config
 
-api_key = "e7253349b561bf2b8d01f39a73b92fc9"
-
-default_city = 'pavia'
+default_city = 'milan'
 geolocation_api = 'https://ipapi.co/json'
 
 temperature = ''
 recognized_city = ''
 
 try:
+    api_key = config('OPENWEATHER_API_KEY')
     location_response = requests.get(geolocation_api)
     location_data = json.loads(location_response.text)
     current_city = location_data["city"]
