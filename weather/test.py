@@ -23,7 +23,7 @@ try:
     weather_data = json.loads(weather_response.text)
     temperature = weather_data["main"]["temp"] - 273.15 # Conversion from Kelvin to Celsius
     recognized_city = weather_data["name"]
-except Exception as e:
+except:
     temperature = ''
     recognized_city = ''
 finally:
