@@ -15,7 +15,7 @@ def main():
 
   while True:
     # Send some test
-    display.lcd_string(weather.get_weather(), display.LCD_LINE_1)
+    display.lcd_string(weather.get_weather_data()["main"]["temp"], display.LCD_LINE_1)
     # # Send some more text
     # display.lcd_string("Raspberry PI", display.LCD_LINE_2)
     time.sleep(3)
