@@ -15,9 +15,9 @@ def main():
 
   while True:
     # Send some test
-    weather = weather.get_weather_data()
-    display.lcd_string(str(weather["name"]), display.LCD_LINE_1)
-    display.lcd_string(str(weather["main"]["temp"]), display.LCD_LINE_2)
+    weather_data = weather.get_weather_data()
+    display.lcd_string(str(weather_data["name"]), display.LCD_LINE_1)
+    display.lcd_string(str(weather_data["main"]["temp"]), display.LCD_LINE_2)
     # # Send some more text
     time.sleep(3)
 
