@@ -17,7 +17,7 @@ def main():
     # Send some test
     weather_data = weather.get_weather_data()
     display.lcd_string(str(weather_data["name"]) + ', ' + str(weather_data["description"]), display.LCD_LINE_1)
-    display.lcd_string(str(weather_data["main"]["temp"]) + ' C'), display.LCD_LINE_2)
+    display.lcd_string(str(weather_data["main"]["temp"]) + ' C', display.LCD_LINE_2)
     # # Send some more text
     time.sleep(3)
 
