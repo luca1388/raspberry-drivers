@@ -82,6 +82,6 @@ class lcd:
 
         for i in range (0, len(message)):
             lcd_text = message[i:(i+16)]
-        self.lcd_string(lcd_text,1)
+        self.lcd_string(lcd_text, line)
         time.sleep(0.4)
-        self.lcd_string(str_pad,1)
+        self.lcd_string(str_pad, line)

@@ -19,7 +19,7 @@ def main():
 
     time.sleep(3)
 
-    display.lcd_bounce_string("this is a very long string")
+    display.lcd_bounce_string("this is a very long string", display.LCD_LINE_2)
 
 if __name__ == '__main__':
 
