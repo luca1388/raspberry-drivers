@@ -76,3 +76,12 @@ class lcd:
         for i in range(LCD_WIDTH):
             self.lcd_byte(ord(message[i]),lcd.LCD_CHR)
     
+    def lcd_bounce_string(self, message, line):
+        str_pad = " " * 16
+        message = str_pad + message
+
+        for i in range (0, len(message)):
+            lcd_text = message[i:(i+16)]
+        self.lcd_string(lcd_text,1)
+        time.sleep(0.4)
+        self.lcd_string(str_pad,1)

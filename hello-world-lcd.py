@@ -19,6 +19,8 @@ def main():
 
     time.sleep(3)
 
+    display.lcd_bounce_string("this is a very long string")
+
 if __name__ == '__main__':
 
   try:
