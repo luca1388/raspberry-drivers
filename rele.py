@@ -20,3 +20,15 @@ GPIO.output(13, GPIO.HIGH)
 sleep(1)
 
 GPIO.output(15, GPIO.HIGH)
+
+sleep(1)
+
+GPIO.output(11, GPIO.LOW)
+
+sleep(1)
+
+GPIO.output(13, GPIO.LOW)
+
+sleep(1)
+
+GPIO.output(15, GPIO.LOW)
