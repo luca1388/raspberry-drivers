@@ -3,8 +3,8 @@ import time
 
 LCD_WIDTH = 16   # Maximum characters per line
 
-LCD_BACKLIGHT  = 0x08  # On
-#LCD_BACKLIGHT = 0x00  # Off
+#LCD_BACKLIGHT  = 0x08  # On
+LCD_BACKLIGHT = 0x00  # Off
 
 ENABLE = 0b00000100 # Enable bit
 
